@@ -4,6 +4,23 @@
 $.ajaxPrefilter(function(options){
    //在发起ajax请求前拼接好路径
    options.url = 'http://ajax.frontend.itheima.net' + options.url;
-   console.log(options.url);
+   
+    //统一为有权限的接口设置 header 请求头
+  if (options.url.indexOf('/my/') !== -1) {
+    options.headers = {
+      Authorization: localStorage.getItem('token') || ''
+    }
+  }
+
+  //优化权限控制代码
+  //控制用户访问权限 此函数不管是成功还是失败都会执行的函数
+  options.complete = function (res) {
+    if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
+      //强制清空 token
+      localStorage.removeItem('token');
+      //强制跳转登陆页面
+      location.href = '/login.html';
+    }
+  }
    
 });
