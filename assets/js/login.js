@@ -61,6 +61,7 @@ $(function () {
                 localStorage.setItem("token", res.token)
                 //登录成功跳转主页面
                 location.href = "/index.html"
+                
             }
         });
     });

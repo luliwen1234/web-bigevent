@@ -15,7 +15,7 @@ $.ajaxPrefilter(function(options){
   //优化权限控制代码
   //控制用户访问权限 此函数不管是成功还是失败都会执行的函数
   options.complete = function (res) {
-    if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
+    if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
       //强制清空 token
       localStorage.removeItem('token');
       //强制跳转登陆页面
