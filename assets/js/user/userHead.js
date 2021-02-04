@@ -57,9 +57,9 @@ $(function () {
       },
       success: function (res) {
         if(res.status !== 0){
-          return layui.layer.msg('获取头像失败');
+          return layui.layer.msg('更换头像失败');
         }
-        layui.layer.msg('获取头像成功');
+        layui.layer.msg('更换头像成功');
         window.parent.userInfo();
       }
     });

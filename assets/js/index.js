@@ -31,23 +31,15 @@ function userInfo() {
       //获取用户成功后调用更换头像函数
       changeAvatar(res.data);
     },
-<<<<<<< HEAD
     // //控制用户访问权限 此函数不管是成功还是失败都会执行的函数
-=======
-    //控制用户访问权限 此函数不管是成功还是失败都会执行的函数
->>>>>>> user
     // complete: function(res){
     //   if(res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！"){
     //       //强制清空 token
     //       localStorage.removeItem('token');
     //       //强制跳转登陆页面
     //       location.href = '/login.html';
-<<<<<<< HEAD
     //   }
       
-=======
-    //   } 
->>>>>>> user
     // }
   });
 }
@@ -60,23 +52,13 @@ function changeAvatar(res) {
   var str = name[0].toUpperCase();
   $(".welcome").html("欢迎&nbsp;"+name);
   //判断是用户名登录还是第一次登录
-<<<<<<< HEAD
   if(res.user_pic != null){
     //有头像
-    $('.layui-nav-img').show()
+    $('.layui-nav-img').attr('src',res.user_pic).show()
     $('.span-img').hide();
   }else{
      //没有像
      $('.layui-nav-img').hide()
-=======
-  if(res.user_pic !== null){
-    //有头像
-    $('.layui-nav-img').attr('src',res.user_pic).show();
-    $('.span-img').hide();
-  }else{
-     //没有像
-     $('.layui-nav-img').hide();
->>>>>>> user
      $('.span-img').html(str).show();
   }
 }
